@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Wheather</title>
+</head>
+<body>
+    <div class="container">
+        <div class="weather">
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="text" name="search" id="search" placeholder="Enter the name of place">
+                <input type="submit" value="Search" name="submit">
+            </form>
+            <p>Longitude : {{ data.coord.lon }}</p>
+            <p>Latitude : {{ data.coord.lat }}</p>
+            <p>Temperature : {{ data.main.temp }}</p>
+            <p>Visibility : {{data.visibility }}</p>
+            <p>Search Name : {{ data.name }}</p>
+            <p>County Code : {{data.sys.country}} </p>
+        </div>
+    </div>
+</body>
+</html>
